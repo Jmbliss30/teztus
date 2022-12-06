@@ -12,8 +12,8 @@ const GpaBlock = ({ gpa, scale }) => {
     const [removeLock, setRemoveLock] = useState(false);
     const [myPass, setPass] = useState('');
 
-    const createDocPasss=useRef()
-    const unLockDocPasss= useRef();
+    const createDocPasss = useRef();
+    const unLockDocPasss = useRef();
     const removeDocPasss = useRef();
 
     useEffect(() => {
@@ -48,6 +48,7 @@ const GpaBlock = ({ gpa, scale }) => {
     // ######Modal Form1##################
     const UnLockDocument = () => {
         const handleSubmit = (e) => {
+            debugger;
             e.preventDefault();
             console.log(unLockDocPasss.current.value, myPass);
             if (unLockDocPasss.current.value == myPass) {
@@ -66,7 +67,7 @@ const GpaBlock = ({ gpa, scale }) => {
                 <Form noValidate onSubmit={handleSubmit} className="Payment-Form">
                     <div>
                         <div className="text-center text-white mb-5">
-                            <h5>ENTER PASSWORD TO UNLOCK DOCUMENT</h5>
+                            <h5>Use the same password as your login password to unlock the calculator</h5>
                         </div>
                         <Form.Group className="unclockdocs" controlId="unclockdoc">
                             <Form.Control type="text" placeholder="" ref={unLockDocPasss} name="unlockpass" defaultValue="" />
@@ -126,7 +127,6 @@ const GpaBlock = ({ gpa, scale }) => {
     // ################
 
     const CreatePassWord = () => {
-       
         const handleSubmit = (e) => {
             e.preventDefault();
             console.log(createDocPasss.current.value, myPass);
@@ -145,7 +145,7 @@ const GpaBlock = ({ gpa, scale }) => {
                         <p className="mt-4">Create password</p>
                     </div>
                     <Form.Group className="createpassword" controlId="creatpass">
-                        <Form.Control type="text" placeholder="" ref={createDocPasss} name="createpass" defaultValue='' />
+                        <Form.Control type="text" placeholder="" ref={createDocPasss} name="createpass" defaultValue="" />
                     </Form.Group>
                 </div>
                 <div className="text-center">

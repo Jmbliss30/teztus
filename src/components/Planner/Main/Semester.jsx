@@ -85,14 +85,13 @@ const Semester = ({ setGPA, setScale }) => {
         }
     ]);
 
-    const handleChange = (value, semesterId, courseId, type, e) => {
+    const handleChange = (value, semesterId, courseId, type) => {
         const updatedSemesters = semesters.map((semester) => {
             if (semester.id == semesterId) {
                 semester.courses.map((course) => {
                     if (course.id == courseId) {
                         course[type] = value;
                         course.colorClass = fGrade2[value] >= fGrade2[course.objgrade] ? 'Aclass' : 'Fclass';
-                        setPercentage({ ...percentage, [e.target.name]: e.target.value });
                     }
                     return course;
                 });

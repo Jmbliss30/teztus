@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Row, Col, Container,Form } from 'react-bootstrap';
+import { Button, Row, Col, Container, Form } from 'react-bootstrap';
 import MyDate from '../components/feed/Date';
 import '../css/main.css';
-import Footer from '../Layouts/Footer';import { Formik } from 'formik';
+import Footer from '../Layouts/Footer';
+import { Formik } from 'formik';
 import Header from '../Layouts/Header';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import moment from 'moment';
@@ -11,16 +12,14 @@ const Grades = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [questionFields, setQuestionField] = useState([]);
-      const { studyid } = useParams();
+    const { studyid } = useParams();
     const [correct, setCorrect] = useState([]);
-    let userName = localStorage.getItem('user')
-
+    let userName = localStorage.getItem('user');
 
     useEffect(async () => {
         const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/uqAttempts/study/${studyid}/${location.state.allAteampts}`);
         setQuestionField(res.data);
     }, []);
-
 
     console.log(location.state.currentStudySet.title);
     return (

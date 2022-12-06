@@ -143,12 +143,10 @@ const Course = (props) => {
         };
 
         return (
-            <Modal {...props}  fullscreen={true} aria-labelledby="contained-modal-title-vcenter"  className="signlecoursetrailer" centered>
+            <Modal {...props} fullscreen={true} aria-labelledby="contained-modal-title-vcenter" className="signlecoursetrailer" centered>
                 <Modal.Header closeButton></Modal.Header>
                 <Modal.Body>
                     <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-
-
                 </Modal.Body>
             </Modal>
         );

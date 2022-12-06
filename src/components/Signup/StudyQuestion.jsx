@@ -14,6 +14,7 @@ const StudyQuestion = ({ data, setData }, props) => {
     const [deletedQ, setDeletedQ] = useState();
     const [questionAdded, setQuestionAdded] = useState(false);
     const [questionValues, setQuestionValues] = useState([]);
+
     let { id } = useParams();
     useEffect(() => {
         if (questionAdded === true) addField();
@@ -125,10 +126,18 @@ const StudyQuestion = ({ data, setData }, props) => {
     };
 
     const tobackquestion = () => {
-        setQuestionIndex(questionIndex - 1);
+        if (questionIndex <= 0) {
+            setQuestionIndex(0);
+        } else {
+            setQuestionIndex(questionIndex - 1);
+        }
     };
     const tonextquestion = () => {
-        setQuestionIndex(questionIndex + 1);
+        if (questionIndex > noofQuestion) {
+            setQuestionIndex(questionIndex);
+        } else {
+            setQuestionIndex(questionIndex + 1);
+        }
     };
 
     const handleClose = () => setModalShow(false);
@@ -146,7 +155,7 @@ const StudyQuestion = ({ data, setData }, props) => {
                                     <CKEditor
                                         id="myediter"
                                         editor={ClassicExtended}
-                                        data={field.question}
+                                        data={field?.question}
                                         onReady={(editor) => {
                                             if (index == questionValues.length - 1) {
                                                 setQuestionAdded(false);
@@ -260,7 +269,6 @@ const StudyQuestion = ({ data, setData }, props) => {
                                         />
                                     </Form.Group>
                                     <CKEditor
-                                        resize={100}
                                         editor={ClassicExtended}
                                         data={questionValues[questionIndex]?.question}
                                         onReady={(editor) => {}}

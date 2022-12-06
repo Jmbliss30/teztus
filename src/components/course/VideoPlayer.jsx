@@ -41,9 +41,9 @@ const VideoPlayer = (props) => {
     };
 
     useEffect(() => {
-        const episode = props.episode
-        const topic = props.topic
-        if (!topic || !episode) return
+        const episode = props.episode;
+        const topic = props.topic;
+        if (!topic || !episode) return;
         setVideotoPath(episode);
         setTopicId(topic._id);
         setTopicDescription(topic.description);
@@ -53,9 +53,8 @@ const VideoPlayer = (props) => {
         setvideoPlaying(true);
         setVideoDuration(episode.viewprogress);
         if (player) player.currentTime(episode.viewprogress);
-      
-    }, [props.topic, props.episode])
-    
+    }, [props.topic, props.episode]);
+
     useEffect(() => {
         if (!localStorage.getItem('jwt')) {
             navigate('/signin');
@@ -122,7 +121,7 @@ const VideoPlayer = (props) => {
         return (
             <div data-vjs-player>
                 <video ref={videoRef} id="ddd" className="video-js vjs-big-play-centered vjs-theme-sea" data-setup='{ "playbackRates": [0.5, 1, 1.5, 2] }' />
-                <div className="topicdescription" style={{ minHeight: 'calc(100vh - 16px)', top:'0px' }}>
+                <div className="topicdescription" style={{ minHeight: 'calc(100vh - 16px)', top: '0px' }}>
                     <h2>{Course_Title}</h2>
                     <h5>{videoPath?.title}</h5>
                     <p>{topicDescription}</p>
@@ -279,8 +278,8 @@ const VideoPlayer = (props) => {
         document.getElementById('nxtepi').style.display = 'none';
         player.on('play', () => {
             handleStart();
- var element1 = document.getElementById('thiPlayingvideo');
- element1.classList.add('videoplayingbg');
+            var element1 = document.getElementById('thiPlayingvideo');
+            element1.classList.add('videoplayingbg');
             document.getElementById('nxtepi').style.display = 'block';
             if (pausedAt) {
                 player.currentTime(pausedAt);
@@ -310,7 +309,6 @@ const VideoPlayer = (props) => {
     useEffect(() => {
         getCourses();
     }, [toggle, videoPlaying]);
- 
 
     const [topicId, setTopicId] = useState();
 
@@ -320,6 +318,7 @@ const VideoPlayer = (props) => {
     const [mainTopic, setMainTopic] = useState();
 
     const PlayingNextEpisode = async () => {
+        debugger;
         const index = videoEpisode.findIndex((id) => id._id == videoPath._id);
         if (index < videoEpisode.length - 1) {
             setVideotoPath(videoEpisode[index + 1]);
@@ -347,7 +346,7 @@ const VideoPlayer = (props) => {
         player.currentTime(episode.viewprogress);
         player.on('play', function () {
             player.currentTime(episode.viewprogress);
-           var element1 =document.getElementById('thiPlayingvideo')
+            var element1 = document.getElementById('thiPlayingvideo');
             element1.classList.add('videoplayingbg');
             // element.classList.remove('class-3');
         });
@@ -364,9 +363,6 @@ const VideoPlayer = (props) => {
             console.log(error);
         }
     };
-    
-
-
 
     return (
         <Modal {...props} fullscreen={true} aria-labelledby="contained-modal-title-vcenter" id="thiPlayingvideo" className="course-Modal videomodal px-0" centered>
@@ -383,7 +379,9 @@ const VideoPlayer = (props) => {
                                         ...videoJsOptions.plugins,
                                         markers: {
                                             markers: videoPath?.comments?.map((comment) => {
-                                                return comment;
+                                                {
+                                                    return comment;
+                                                }
                                             })
                                         },
                                         seekButtons: {
