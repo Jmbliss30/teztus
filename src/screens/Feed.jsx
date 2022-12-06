@@ -25,6 +25,11 @@ function Feed() {
             </div>
 
             <div>
+                <div class="w3-panel w3-red notAvailable">
+                    <div className="alertbox">
+                        <p className="alertpara">“This feature is not available yet.”</p>
+                    </div>
+                </div>
                 <section id="map" className="position-relative" style={teztCheck ? { filter: 'opacity(0.16)', pointerEvents: 'none' } : null}>
                     <Container fluid className="p-0">
                         <div className="feed">

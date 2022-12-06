@@ -67,7 +67,7 @@ const GpaBlock = ({ gpa, scale }) => {
                 <Form noValidate onSubmit={handleSubmit} className="Payment-Form">
                     <div>
                         <div className="text-center text-white mb-5">
-                            <h5>Use the same password as your login password to unlock the calculator</h5>
+                            <h5>ENTER PASSWORD TO UNLOCK DOCUMENT</h5>
                         </div>
                         <Form.Group className="unclockdocs" controlId="unclockdoc">
                             <Form.Control type="text" placeholder="" ref={unLockDocPasss} name="unlockpass" defaultValue="" />

@@ -634,6 +634,8 @@ img {
     .feed {
         padding-top: 60px !important;
     }
+    
+
     ul.mb-3.videoss.nav.nav-tabs li.nav-item {
         margin-left: 0px;
     }
@@ -2880,6 +2882,35 @@ textarea#review {
     background: linear-gradient(180deg, #5786ba 9%, #9cbedf 100%);
     padding-top: 120px;
     min-height: 100vh;
+}
+
+.notAvailable{
+    width: 45%;
+    height: 45%;
+    overflow: auto;
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    bottom: 50%;
+    right: 0;
+    display: flex;
+    background: #000000f0;
+    z-index: 999;
+}
+.alertbox {
+    position: absolute;
+    top: 50%;
+    left: 27%;
+    width: 60%;
+    height: 50%;
+    margin-top: -40px;
+    color: white;
+    margin-left: -40px;
+}
+.alertpara{
+    font-size: 22px;
+    text-transform: capitalize;
 }
 .comment input#formBasicEmail {
     margin: auto !important;

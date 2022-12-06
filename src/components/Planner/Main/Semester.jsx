@@ -343,7 +343,7 @@ const Semester = ({ setGPA, setScale }) => {
                                                                     placeholder="4"
                                                                     min="1"
                                                                     max="10"
-                                                                    defaultValue={course.credit}
+                                                                    value={course.credit}
                                                                     onChange={(e) => handleChange(parseInt(e.target.value), semester.id, course.id, 'credit')}
                                                                 />
                                                                 <Button>Add Credit</Button>
